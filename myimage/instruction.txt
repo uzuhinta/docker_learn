@@ -1,0 +1,13 @@
+docker run -it --name cent centos:latest
+
+yum update -y
+yum install httpd httpd-tools -y
+yum install vim -y
+yum install epel-release -y
+yum update -y
+yum install htop -y
+
+docker cp /mycode/myimage/test.html 
+      cent:/var/www/html
+
+docker commit cent myimage:v1
